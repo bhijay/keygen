@@ -8,12 +8,15 @@
         StringBuilder sb=new StringBuilder();
         for(int i=0;i<s.length();i++)
         {
-           if(t>='a' && t<='z')
+            char t=s.charAt(i);
+            
+            if(t>='a' && t<='z')
             {
                 int t1=t-'a'+offset;
                 t1=t1%26;
                 sb.append((char)(t1+'a'));
             }
+
         }
         return sb.toString();
     }
@@ -25,13 +28,7 @@
         for(int i=0;i<s.length();i++)
         {
             char t=s.charAt(i);
-            if(t>='A' && t<='Z')
-            {
-                int t1=t-'A'-offset;
-                if(t1<0)t1=26+t1;
-                sb.append((char)(t1+'A'));
-            }
-            else if(t>='a' && t<='z')
+            if(t>='a' && t<='z')
             {
                 int t1=t-'a'-offset;
                 if(t1<0)t1=26+t1;
@@ -45,15 +42,15 @@
 public static void main(String[] args) {
     try
     {
-        System.out.println("keygen technique");
+        System.out.println("Generating Serial");
         BufferedReader b;
         String oriTxt,encTxt,decTxt;
-        System.out.println("Enter string to encrypt:");
+        System.out.println("Enter Your Name:");
         b=new BufferedReader(new InputStreamReader(System.in));
         oriTxt=b.readLine();
         keygen c=new keygen();
         encTxt=c.encrypt(oriTxt);
-        System.out.println("Encrypted text :"+encTxt);
+        System.out.println("Serial Text :"+encTxt);
         decTxt=c.decrypt(encTxt);
         //System.out.println("Derypted text :"+decTxt);
     }
